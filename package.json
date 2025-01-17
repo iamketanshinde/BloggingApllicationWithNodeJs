@@ -114,7 +114,7 @@
     "whatwg-url": "^14.1.0"
   },
   "scripts": {
-    "test": "nodemon index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
