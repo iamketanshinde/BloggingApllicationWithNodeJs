@@ -2,7 +2,7 @@ const {createHmac, randomBytes} = require("crypto");
 const { Schema, model }= require("mongoose");
 
 const userSchema= new Schema({
-    fullName:{
+    fullname:{
         type: String,
         required: true,
     },
@@ -13,7 +13,6 @@ const userSchema= new Schema({
     },
     salt:{
         type: String,
-        required: true,
     },
     password:{
         type: String,
