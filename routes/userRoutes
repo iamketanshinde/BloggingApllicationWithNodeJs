@@ -11,12 +11,17 @@ router.get('/signup', (req, res)=>{
 });
 
 
-router.post('/signin', async(req, res)=>{
-    const { email, password } =req.body;
-    const user = User.matchPasswordAndGenerateToken(email, password);
-    console.log("User",user);
-    return res.redirect('/'); 
-}); 
+router.post('/signin', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const token = await User.matchPasswordAndGenerateToken(email, password); // Ensure `await`
+        console.log("Token:", token);
+        return res.redirect('/');
+    } catch (error) {
+        console.error(error.message);
+        return res.status(400).send(error.message);
+    }
+});
 
 router.post('/signup',async(req, res)=>{
     const { fullname, email, password } =req.body;
