@@ -4,7 +4,12 @@ const app= express();
 const PORT= 7001;
 const userRoute = require("./routes/userRoutes")
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const { chechForAuthenticationCookie } = require('./middleware/authenticationMiddleware.js');
+
 app.use(express.urlencoded({extended:false}));
+app.use(cookieParser());
+app.use(chechForAuthenticationCookie("token"));
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve('./views'));
