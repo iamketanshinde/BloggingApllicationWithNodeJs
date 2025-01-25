@@ -16,8 +16,12 @@ app.set("views", path.resolve('./views'));
 mongoose.connect("mongodb://localhost:27017/BlogifyApplication").then((e)=>console.log("mongodb Connected!"))
 
 app.get('/', (req, res)=>{
-    res.render('homepage');
-})
+    res.render('homepage',{
+        user:req.user,
+
+    });
+});
+
 app.use('/user',userRoute);
 
 app.listen(PORT,()=>console.log(`Server Running On PORT: ${PORT}`));
