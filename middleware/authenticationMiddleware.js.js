@@ -4,7 +4,7 @@ function chechForAuthenticationCookie(CookieName){
     return (req, res, next)=>{
         const tokenCokkieValue = req.cookies[CookieName]
         if(!tokenCokkieValue){
-            next();
+          return  next();
         }
         try{
         const userPayload = validateToken(tokenCokkieValue);
@@ -12,7 +12,7 @@ function chechForAuthenticationCookie(CookieName){
         }
         catch(error) {}
 
-        next();
+        return next();
     };
 }
 
