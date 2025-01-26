@@ -2,7 +2,12 @@ const express = require('express');
 const path = require('path');
 const app= express();
 const PORT= 7001;
+
+
 const userRoute = require("./routes/userRoutes")
+const blogRoute = require("./routes/blog")
+
+
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const { chechForAuthenticationCookie } = require('./middleware/authenticationMiddleware.js');
@@ -22,5 +27,6 @@ app.get('/', (req, res)=>{
 });
 
 app.use('/user',userRoute);
+app.use('/blog',blogRoute);
 
 app.listen(PORT,()=>console.log(`Server Running On PORT: ${PORT}`));
