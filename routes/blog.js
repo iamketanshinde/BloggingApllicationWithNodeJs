@@ -23,6 +23,12 @@ router.get("/Addnew", (req, res) => {
   });
 });
 
+//getting img after clicking view button
+router.get("/:id", async(req, res)=>{
+  const blog = await Blog.findById(req.params.id);
+})
+
+
 router.post("/", upload.single("coverImage"), async (req, res) => {
   const { title, body } = req.body;
 
