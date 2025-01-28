@@ -9,14 +9,16 @@
 <body>
     <%- include('./partials/scripts.ejs') %>
    
-    <div class="container mt-3">
+    <div class="container mt-3 row row-cols-4">
         <% blogs.forEach(blog => { %>
-            <div class="card" style="width: 18rem;">
-                <!-- Ensure the correct field name -->
-                <img src="<%= blog.coverImgUrl %>" class="card-img-top" alt="Blog Image">
-                <div class="card-body">
-                    <h5 class="card-title"><%= blog.title %></h5>
-                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+            <div class="col mb-2 mt-4">
+                <div class="card col" style="width: 18rem;">
+                    <!-- Ensure the correct field name -->
+                    <img src="<%= blog.coverImgUrl %>" class="card-img-top" alt="Blog Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                    </div>
                 </div>
             </div>
         <% }) %>
