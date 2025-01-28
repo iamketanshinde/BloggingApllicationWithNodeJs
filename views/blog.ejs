@@ -15,6 +15,11 @@
         <pre><%= blog.body %></pre>
     </div>
 
+    <div class="container mt-3 d-flex">
+        <img src="<%= blog.createdBy.profileImageUrl %> " alt="" width="50px">
+        <p><%= blog.createdBy.fullname %></p>
+    </div>
+
     <%- include('./partials/scripts.ejs') %>
 </body>
 </html>
