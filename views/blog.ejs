@@ -20,6 +20,19 @@
         <p><%= blog.createdBy.fullname %></p>
     </div>
 
+    <div class="container mt-3">
+        <h1>Comments</h1>
+        <% if (locals.user) { %>
+            <form action="/blog/comment/<%=blog._id %>" method="post">
+                <div class="mb-3">
+                  <input type="text" name="content" class="form-control" placeholder="Enter Your Comments!!">
+                  <button class="btn btn-sm btn-info mt-2">SubmitComment</button>
+                </div>
+            </form> 
+        <% } %>
+    </div>
+
+
     <%- include('./partials/scripts.ejs') %>
 </body>
 </html>
